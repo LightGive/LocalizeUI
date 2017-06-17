@@ -1,6 +1,7 @@
 # LocalizeUI
 UnityのUIのローカライズのエディタ拡張です
 
+
 ## 使い方  
 対応してあるUIの  
 ・Text  
