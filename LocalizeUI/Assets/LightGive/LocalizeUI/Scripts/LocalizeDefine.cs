@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-public static class LocalizeDefine
+namespace LightGive
 {
-	public const string SaveKeyLanguageList = "SaveKeyLanguageList";
-
-	public static int LanguageNum
+	public static class LocalizeDefine
 	{
-		get
+		public const string SaveKeyLanguageList = "SaveKeyLanguageList";
+
+		public static int LanguageNum
 		{
-			return System.Enum.GetNames(typeof(SystemLanguage)).Length;
+			get
+			{
+				return System.Enum.GetNames(typeof(SystemLanguage)).Length;
+			}
 		}
 	}
 }

@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public  interface ILocalizeUI
+namespace LightGive
 {
-	void ChangeLanguage();
+	public interface ILocalizeUI
+	{
+		void ChangeLanguage(SystemLanguage _language);
+	}
 }

@@ -1,42 +1,71 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-
-
-/// <summary>
-/// テキストをローカライズさせる
-/// </summary>
-[RequireComponent(typeof(Text))]
-public class LocalizeText : MonoBehaviour, ILocalizeUI
+namespace LightGive
 {
-	[SerializeField]
-	private string[] m_textList = new string[LocalizeDefine.LanguageNum];
-
-	private Text m_mainText;
-	public Text MainText
+	/// <summary>
+	/// テキストをローカライズさせる
+	/// </summary>
+	[RequireComponent(typeof(Text))]
+	public class LocalizeText : MonoBehaviour, ILocalizeUI
 	{
-		get
+		[SerializeField]
+		private string[] m_textList = new string[LocalizeDefine.LanguageNum];
+		[SerializeField]
+		private int[] m_fontSizeList = new int[LocalizeDefine.LanguageNum];
+		[SerializeField]
+		private Vector2[] m_rectSizeList = new Vector2[LocalizeDefine.LanguageNum];
+		[SerializeField]
+		private bool m_isChangeRectSize;
+		[SerializeField]
+		private bool m_isChangeFontSize;
+
+		private Text m_mainText;
+		public Text MainText
 		{
-			if (!m_mainText)
-				m_mainText = this.gameObject.GetComponent<Text>();
-			return m_mainText;
+			get
+			{
+				if (!m_mainText)
+					m_mainText = this.gameObject.GetComponent<Text>();
+				return m_mainText;
+			}
 		}
-	}
 
-	void Start()
-	{
+		void Reset()
+		{
+			for (int i = 0; i < LocalizeDefine.LanguageNum; i++)
+			{
+				m_textList[i] = MainText.text;
+				m_fontSizeList[i] = MainText.fontSize;
+				m_rectSizeList[i] = MainText.rectTransform.sizeDelta;
+			}
+		}
 
-	}
+		void Start()
+		{
 
-	void Update()
-	{
+		}
 
-	}
+		void Update()
+		{
+
+		}
 
 
-	public void ChangeLanguage()
-	{
+		public void ChangeLanguage(SystemLanguage _language)
+		{
+			int index = (int)_language;
+
+			MainText.text = m_textList[index];
+
+			if (m_isChangeRectSize)
+			{
+				MainText.rectTransform.sizeDelta = m_rectSizeList[index];
+			}
+			if (m_isChangeFontSize)
+			{
+				MainText.fontSize = m_fontSizeList[index];
+			}
+		}
 	}
 }
