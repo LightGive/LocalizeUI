@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{62BD1764-11D1-C684-6C6F-26E480D70DB8}|">
+  <MonoDevelop.Ide.ItemProperties.LocalizeUI PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/LocalizeUI/Scripts/Editor/SettingLocalizeWindow.cs">
+    <Files>
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/Editor/SettingLocalizeWindow.cs" Line="95" Column="74" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/LocalizeDefine.cs" Line="12" Column="4" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/ILocalizeUI.cs" Line="5" Column="30" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/Editor/LocalizeTextEditor.cs" Line="11" Column="3" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/LocalizeText.cs" Line="6" Column="1" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

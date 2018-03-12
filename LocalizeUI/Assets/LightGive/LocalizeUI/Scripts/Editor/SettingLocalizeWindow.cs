@@ -7,6 +7,9 @@ using System.CodeDom;
 using System.Diagnostics;
 using UnityEngine.Rendering;
  
+/// <summary>
+/// ローカライズの設定をする
+/// </summary>
 public class SettingLocalizeWindow : EditorWindow
 {
     private List<SystemLanguage> correspondenceLanguageList = new List<SystemLanguage>();
@@ -70,27 +73,9 @@ public class SettingLocalizeWindow : EditorWindow
 
     void LoadLanguageList()
     {
-        var str = PlayerPrefs.GetString(LocalizeDefine.SaveKeyLanguageList, "");
-        UnityEngine.Debug.Log("LoadString : " + str);
-        string[] langList;
-        if (str != "")
-        {
-            langList = str.Split(',');
-        }
-        else
-        {
-            langList = new string[0];
-        }
-
-
-        correspondenceLanguageList = new List<SystemLanguage>();
-
-        for (int i = 0; i < langList.Length; i++)
-        {
-            UnityEngine.Debug.Log(i.ToString("00") + " : " + langList[i]);
-            SystemLanguage lang = (SystemLanguage)Enum.Parse(typeof(SystemLanguage), langList[i]);
-            correspondenceLanguageList.Add(lang);
-        }
+		correspondenceLanguageList = new List<SystemLanguage>();
+		var loadStr = PlayerPrefs.GetString(LocalizeDefine.SaveKeyLanguageList, "");
+		correspondenceLanguageList = GetSaveDataToLangList(loadStr);
 
         //EnumをStringの配列に変換
         string[] enumNames = System.Enum.GetNames(typeof(SystemLanguage));
@@ -103,4 +88,37 @@ public class SettingLocalizeWindow : EditorWindow
                 addLanguageList.Add(lang.ToString());
         }
     }
+
+	/// <summary>
+	/// ロードした文字からリストにして返す
+	/// </summary>
+	/// <returns>The save data to lang list.</returns>
+	/// <param name="_str">String.</param>
+	public static List<SystemLanguage> GetSaveDataToLangList(string _str)
+	{
+		List<SystemLanguage> langEnumList = new List<SystemLanguage>();
+
+		//デバッグ用
+		//UnityEngine.Debug.Log("LoadString : " + _str);
+
+		string[] langList;
+		if (_str != "")
+		{
+			langList = _str.Split(',');
+		}
+		else
+		{
+			langList = new string[0];
+		}
+
+		for (int i = 0; i < langList.Length; i++)
+		{
+			//デバッグ用
+			//UnityEngine.Debug.Log(i.ToString("00") + " : " + langList[i]);
+			SystemLanguage lang = (SystemLanguage)Enum.Parse(typeof(SystemLanguage), langList[i]);
+			langEnumList.Add(lang);
+		}
+
+		return langEnumList;
+	}
 }
