@@ -16,7 +16,18 @@ public class LocalizeSettingData : ScriptableObject
 	{
 		var exampleAsset = CreateInstance<LocalizeSettingData>();
 
-		AssetDatabase.CreateAsset(exampleAsset, "Assets/Editor/ExampleAsset.asset");
+
+
+		string path = EditorUtility.SaveFilePanel("Create Setting Data", "Assets/", "LocalizeSetting.asset", "asset");
+		if (path == "")
+			return;
+
+		path = FileUtil.GetProjectRelativePath(path);
+		LocalizeSettingData data = ScriptableObject.CreateInstance<LocalizeSettingData>();
+		AssetDatabase.CreateAsset(data, path);
+		AssetDatabase.SaveAssets();
+
+		//AssetDatabase.CreateAsset(exampleAsset,);//"Assets/Editor/ExampleAsset.asset"
 		AssetDatabase.Refresh();
 	}
 }
