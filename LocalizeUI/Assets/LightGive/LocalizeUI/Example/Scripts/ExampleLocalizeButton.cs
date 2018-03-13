@@ -6,6 +6,6 @@ namespace LightGive
 {
 	public class ExampleLocalizeButton : MonoBehaviour
 	{
-		public SystemLanguage ChangeLanguage;
+		public SystemLanguage Language;
 	}
 }

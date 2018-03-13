@@ -724,7 +724,7 @@ MonoBehaviour:
   - {x: 150, y: 30}
   - {x: 150, y: 30}
   m_isChangeRectSize: 0
-  m_isChangeFontSize: 0
+  m_isChangeFontSize: 1
 --- !u!1 &1187713549
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +909,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1196052037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1187713554}
+        m_MethodName: OnLanguageButtonwDown
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1196052039}
+          m_ObjectArgumentAssemblyTypeName: LightGive.ExampleLocalizeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1196052037
@@ -956,6 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c036e56e0aac4ff0bdca20f02780473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Language: 10
 --- !u!1 &1296398010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,12 +1106,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187713549}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1187713554}
+        m_MethodName: OnLanguageButtonwDown
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 1405612380}
+          m_ObjectArgumentAssemblyTypeName: LightGive.ExampleLocalizeButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1151,6 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c036e56e0aac4ff0bdca20f02780473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Language: 22
 --- !u!1 &1773690245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1257,23 @@ MonoBehaviour:
   - "\u300CHello!\u300D"
   - "\u300CHello!\u300D"
   - "\u300CHello!\u300D"
+  - "\u4F60\u597D!"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - Hello!
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u3053\u3093\u306B\u3061\u306F!"
   - "\u300CHello!\u300D"
   - "\u300CHello!\u300D"
   - "\u300CHello!\u300D"
@@ -1261,24 +1291,7 @@ MonoBehaviour:
   - "\u300CHello!\u300D"
   - "\u300CHello!\u300D"
   - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
-  - "\u300CHello!\u300D"
+  - "\u4F60\u597D"
   - "\u300CHello!\u300D"
   - "\u300CHello!\u300D"
   - "\u300CHello!\u300D"
@@ -1406,7 +1419,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1973307586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1187713554}
+        m_MethodName: OnLanguageButtonwDown
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1973307588}
+          m_ObjectArgumentAssemblyTypeName: LightGive.ExampleLocalizeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1973307586
@@ -1453,3 +1477,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c036e56e0aac4ff0bdca20f02780473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Language: 6

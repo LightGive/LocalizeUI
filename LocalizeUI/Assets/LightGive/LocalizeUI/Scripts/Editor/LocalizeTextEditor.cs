@@ -27,6 +27,9 @@ namespace LightGive
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
+
+			LocalizeText localizeText = target as LocalizeText;
+
 			EditorGUILayout.Space();
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField("ChangeFontSize", GUILayout.Width(100));
@@ -73,8 +76,24 @@ namespace LightGive
 							EditorGUILayout.LabelField("RectSize", GUILayout.Width(65));
 							m_propRectSizeList.GetArrayElementAtIndex(i).vector2Value = EditorGUILayout.Vector2Field("", m_propRectSizeList.GetArrayElementAtIndex(i).vector2Value);
 							EditorGUILayout.EndHorizontal();
-
 						}
+
+						EditorGUILayout.BeginHorizontal();
+						if (m_propIsChangeFontSize.boolValue)
+						{
+							if (GUILayout.Button("GetFontSize"))
+							{
+								m_propFontSizeList.GetArrayElementAtIndex(i).intValue = localizeText.MainText.fontSize;
+							}
+						}
+						if (m_propIsChangeRectSize.boolValue)
+						{
+							if (GUILayout.Button("GetRectSize"))
+							{
+								m_propRectSizeList.GetArrayElementAtIndex(i).vector2Value = localizeText.MainText.rectTransform.sizeDelta;
+							}
+						}
+						EditorGUILayout.EndHorizontal();
 
 						EditorGUI.indentLevel--;
 						EditorGUILayout.Space();

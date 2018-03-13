@@ -8,7 +8,8 @@ namespace LightGive
 	{
 		public void OnLanguageButtonwDown(ExampleLocalizeButton _langButton)
 		{
-			
+			Debug.Log("通ってるぞ〜");
+			LocalizeSystem.ChangeLanguage(_langButton.Language);
 		}
 	}
 }

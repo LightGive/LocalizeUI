@@ -41,16 +41,10 @@ namespace LightGive
 			}
 		}
 
-		void Start()
+		void OnEnable()
 		{
-
+			LocalizeSystem.AddLocalizeUI(this);
 		}
-
-		void Update()
-		{
-
-		}
-
 
 		public void ChangeLanguage(SystemLanguage _language)
 		{
