@@ -10,82 +10,126 @@ namespace LightGive
 	/// </summary>
 	public class SettingLocalizeWindow : EditorWindow
 	{
-		private List<SystemLanguage> correspondenceLanguageList = new List<SystemLanguage>();
-		private List<string> addLanguageList = new List<string>();
-		private int selectLanguageNo = 0;
+		/// <summary>
+		/// 対応するかどうか
+		/// </summary>
+		private bool[] m_isCorrespondence = new bool[LocalizeDefine.LanguageNum];
+
+
+		private List<SystemLanguage> m_correspondenceLanguageList = new List<SystemLanguage>();
+		private List<string> m_addLanguageList = new List<string>();
+		private int m_addSelectLanguageNo = 0;
+
+		//private List<string> m_CorrespondenceLanguageEnumList
+		//{
+		//	get
+		//	{
+		//		List<string> labelList = new List<string>();
+		//		for (int i = 0; i < m_correspondenceLanguageList.Count;i++)
+		//		{
+		//			//if(m_correspondenceLanguageList[i].ToString() == )
+		//		}
+		//		return labelList;
+		//	}
+		//}
+
+
+
 
 		[MenuItem("Tools/LightGive/Localize/Setting")]
 		static void Open()
 		{
-			EditorWindow.GetWindow<SettingLocalizeWindow>("Setting");
+			EditorWindow.GetWindow<SettingLocalizeWindow>("SettingLocalize");
 		}
 
 		void OnGUI()
 		{
+			EditorGUILayout.Space();
+			EditorGUILayout.LabelField("NowLanguage");
+			//EditorGUILayout.EnumPopup()
 			GUI.color = Color.white;
 			EditorGUILayout.BeginVertical(GUI.skin.box);
-			for (int i = 0; i < correspondenceLanguageList.Count; i++)
+			for (int i = 0; i < m_correspondenceLanguageList.Count; i++)
 			{
-				EditorGUILayout.LabelField(correspondenceLanguageList[i].ToString());
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField(m_correspondenceLanguageList[i].ToString());
+				if(GUILayout.Button("Remove"))
+				{
+					m_correspondenceLanguageList.Remove(m_correspondenceLanguageList[i]);
+				}
+				EditorGUILayout.EndHorizontal();
 			}
 			EditorGUILayout.EndVertical();
 
-			if (addLanguageList.Count != 0)
+			if (m_addLanguageList.Count != 0)
 			{
 				EditorGUILayout.BeginHorizontal();
-				selectLanguageNo = EditorGUILayout.Popup(selectLanguageNo, addLanguageList.ToArray());
+				m_addSelectLanguageNo = EditorGUILayout.Popup(m_addSelectLanguageNo, m_addLanguageList.ToArray());
 				if (GUILayout.Button("Add language."))
 				{
-					correspondenceLanguageList.Add((SystemLanguage)Enum.Parse(typeof(SystemLanguage), addLanguageList[selectLanguageNo]));
-					selectLanguageNo = 0;
+					m_correspondenceLanguageList.Add((SystemLanguage)Enum.Parse(typeof(SystemLanguage), m_addLanguageList[m_addSelectLanguageNo]));
+					m_addSelectLanguageNo = 0;
 					SaveLanguageList();
 					LoadLanguageList();
 				}
 				EditorGUILayout.EndHorizontal();
 			}
 
+
 			GUI.color = Color.red;
-			if (GUILayout.Button("Delete."))
+			if (GUILayout.Button("All Delete"))
 			{
 				PlayerPrefs.DeleteKey(LocalizeDefine.SaveKeyLanguageList);
 				LoadLanguageList();
 			}
 		}
 
+		/// <summary>
+		/// 初期化
+		/// </summary>
 		void OnEnable()
 		{
 			LoadLanguageList();
 		}
 
+
+
+		/// <summary>
+		/// ロードする
+		/// </summary>
+		void LoadLanguageList()
+		{
+			m_correspondenceLanguageList = new List<SystemLanguage>();
+			var loadStr = PlayerPrefs.GetString(LocalizeDefine.SaveKeyLanguageList, "");
+			m_correspondenceLanguageList = GetSaveDataToLangList(loadStr);
+
+			//EnumをStringの配列に変換
+			string[] enumNames = System.Enum.GetNames(typeof(SystemLanguage));
+
+			m_addLanguageList = new List<string>();
+			for (int i = 0; i < enumNames.Length; i++)
+			{
+				SystemLanguage lang = (SystemLanguage)Enum.Parse(typeof(SystemLanguage), enumNames[i]);
+				if (!m_correspondenceLanguageList.Contains(lang))
+					m_addLanguageList.Add(lang.ToString());
+			}
+		}
+
+		/// <summary>
+		/// セーブする
+		/// </summary>
 		void SaveLanguageList()
 		{
 			var saveStr = "";
-			for (int i = 0; i < correspondenceLanguageList.Count; i++)
+			for (int i = 0; i < m_correspondenceLanguageList.Count; i++)
 			{
-				saveStr += correspondenceLanguageList[i].ToString();
-				if (i != correspondenceLanguageList.Count - 1)
+				saveStr += m_correspondenceLanguageList[i].ToString();
+				if (i != m_correspondenceLanguageList.Count - 1)
 					saveStr += ",";
 			}
 			PlayerPrefs.SetString(LocalizeDefine.SaveKeyLanguageList, saveStr);
 		}
 
-		void LoadLanguageList()
-		{
-			correspondenceLanguageList = new List<SystemLanguage>();
-			var loadStr = PlayerPrefs.GetString(LocalizeDefine.SaveKeyLanguageList, "");
-			correspondenceLanguageList = GetSaveDataToLangList(loadStr);
-
-			//EnumをStringの配列に変換
-			string[] enumNames = System.Enum.GetNames(typeof(SystemLanguage));
-
-			addLanguageList = new List<string>();
-			for (int i = 0; i < enumNames.Length; i++)
-			{
-				SystemLanguage lang = (SystemLanguage)Enum.Parse(typeof(SystemLanguage), enumNames[i]);
-				if (!correspondenceLanguageList.Contains(lang))
-					addLanguageList.Add(lang.ToString());
-			}
-		}
 
 		/// <summary>
 		/// ロードした文字からリストにして返す

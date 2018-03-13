@@ -7,6 +7,7 @@ namespace LightGive
 	public static class LocalizeSystem
 	{
 		private static List<ILocalizeUI> localizeList = new List<ILocalizeUI>();
+		public static List<Font> fontList = new List<Font>();
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
 		private static void Init()

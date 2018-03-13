@@ -1,20 +1,23 @@
 ﻿<Properties StartupConfiguration="{62BD1764-11D1-C684-6C6F-26E480D70DB8}|">
   <MonoDevelop.Ide.ItemProperties.LocalizeUI PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/LocalizeUI/Scripts/LocalizeSystem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/LocalizeUI/Scripts/Editor/LocalizeSettingData.cs">
     <Files>
-      <File FileName="Assets/LightGive/LocalizeUI/Scripts/Editor/SettingLocalizeWindow.cs" Line="124" Column="2" />
-      <File FileName="Assets/LightGive/LocalizeUI/Scripts/LocalizeDefine.cs" Line="17" Column="2" />
-      <File FileName="Assets/LightGive/LocalizeUI/Scripts/ILocalizeUI.cs" Line="8" Column="3" />
-      <File FileName="Assets/LightGive/LocalizeUI/Scripts/Editor/LocalizeTextEditor.cs" Line="5" Column="1" />
-      <File FileName="Assets/LightGive/LocalizeUI/Scripts/LocalizeText.cs" Line="9" Column="34" />
-      <File FileName="Assets/LightGive/LocalizeUI/Example/Scripts/Example.cs" Line="12" Column="29" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/Editor/SettingLocalizeWindow.cs" Line="55" Column="48" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/LocalizeDefine.cs" Line="7" Column="43" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/ILocalizeUI.cs" Line="8" Column="8" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/Editor/LocalizeTextEditor.cs" Line="70" Column="28" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/LocalizeText.cs" Line="53" Column="38" />
+      <File FileName="Assets/LightGive/LocalizeUI/Example/Scripts/Example.cs" Line="11" Column="1" />
       <File FileName="Assets/LightGive/LocalizeUI/Example/Scripts/ExampleLocalizeButton.cs" Line="9" Column="33" />
-      <File FileName="Assets/LightGive/LocalizeUI/Scripts/LocalizeSystem.cs" Line="8" Column="3" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/LocalizeSystem.cs" Line="10" Column="16" />
+      <File FileName="Assets/LightGive/LocalizeUI/Scripts/Editor/LocalizeSettingData.cs" Line="2" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/lightgive/Desktop/UnityProjects/LocalizeUI/LocalizeUI/Assets/LightGive/LocalizeUI/Scripts/LocalizeSystem.cs" relfile="Assets/LightGive/LocalizeUI/Scripts/LocalizeSystem.cs" line="1" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
