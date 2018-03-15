@@ -28,12 +28,9 @@ namespace LightGive
 			{
 				if (m_SettingData == null)
 				{
-					Resources.Load<LocalizeSettingData>();
+					m_SettingData = Resources.Load<LocalizeSettingData>(LocalizeDefine.SettingPath);
 				}
-
-					return m_SettingData;
-
-
+				return m_SettingData;
 			}
 		}
 
