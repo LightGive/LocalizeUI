@@ -12,10 +12,7 @@ namespace LightGive
 	{
 		private LocalizeSettingData m_SettingData;
 
-		/// <summary>
-		/// 対応するかどうか
-		/// </summary>
-		private bool[] m_isCorrespondence = new bool[LocalizeDefine.LanguageNum];
+
 
 		private List<SystemLanguage> m_correspondenceLanguageList = new List<SystemLanguage>();
 		private List<string> m_addLanguageList = new List<string>();
@@ -63,9 +60,30 @@ namespace LightGive
 			}
 
 			EditorGUILayout.Space();
-			EditorGUILayout.LabelField("NowLanguage");
+			EditorGUILayout.LabelField("NowLanguage", SettingData.NowLanguage.ToString());
 
 			GUI.color = Color.white;
+			EditorGUILayout.BeginVertical(GUI.skin.box);
+
+			for (int i = 0; i < LocalizeDefine.LanguageNum; i++)
+			{
+				if (SettingData.IsCorrespondence[i])
+				{
+					EditorGUILayout.BeginHorizontal();
+					EditorGUILayout.LabelField(((SystemLanguage)i).ToString());
+					if (GUILayout.Button("Remove"))
+					{
+						SettingData.IsCorrespondence[i] = false;
+					}
+					EditorGUILayout.EndHorizontal();
+				}
+			}
+
+			EditorGUILayout.EndVertical();
+
+
+
+
 			EditorGUILayout.BeginVertical(GUI.skin.box);
 			for (int i = 0; i < m_correspondenceLanguageList.Count; i++)
 			{
