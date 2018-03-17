@@ -45,15 +45,6 @@ namespace LightGive
 			}
 		}
 
-		void OnEnable()
-		{
-		}
-
-		void OnDisable()
-		{
-			LocalizeSystem.RemoveLocalizeUI(this);
-		}
-
 		public void ChangeLanguage(SystemLanguage _language)
 		{
 			int index = (int)_language;

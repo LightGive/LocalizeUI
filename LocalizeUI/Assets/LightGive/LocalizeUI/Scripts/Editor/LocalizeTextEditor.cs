@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UI;
-using System.Diagnostics;
 
 namespace LightGive
 {
@@ -43,11 +40,9 @@ namespace LightGive
 				(m_propIsChangeRectSize.boolValue ? 1 : 0), new string[] { "Off", "On" }) == 1;
 			EditorGUILayout.EndHorizontal();
 
-
-
 			SerializedProperty arraySizeProp = m_propTextList.FindPropertyRelative("Array.size");
 			EditorGUILayout.Space();
-			List<SystemLanguage> languageList = SettingLocalizeWindow.GetSaveDataToLangList(PlayerPrefs.GetString(LocalizeDefine.SaveKeyLanguageList, ""));
+			List<SystemLanguage> languageList = LocalizeSystem.GetCorrespondenceLanguageList();
 			for (int i = 0; i < arraySizeProp.intValue; i++)
 			{
 				for (int j = 0; j < languageList.Count; j++)
@@ -95,16 +90,12 @@ namespace LightGive
 							}
 						}
 						EditorGUILayout.EndHorizontal();
-
 						EditorGUI.indentLevel--;
 						EditorGUILayout.Space();
-
 					}
 				}
 			}
-
 			serializedObject.ApplyModifiedProperties();
 		}
-
 	}
 }

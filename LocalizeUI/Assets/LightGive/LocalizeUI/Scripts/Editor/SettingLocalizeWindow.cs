@@ -10,7 +10,7 @@ namespace LightGive
 	/// </summary>
 	public class SettingLocalizeWindow : EditorWindow
 	{
-		private LocalizeSettingData m_SettingData;
+		private LocalizeSettingData m_settingData;
 		private int m_addSelectLanguageNo = 0;
 		private int m_selectLanguageNo = 0;
 
@@ -18,11 +18,11 @@ namespace LightGive
 		{
 			get 
 			{
-				if (m_SettingData == null)
+				if (m_settingData == null)
 				{
-					m_SettingData = Resources.Load<LocalizeSettingData>(LocalizeDefine.SettingPath);
+					m_settingData = Resources.Load<LocalizeSettingData>(LocalizeDefine.SettingPath);
 				}
-				return m_SettingData;
+				return m_settingData;
 			}
 		}
 
@@ -53,7 +53,6 @@ namespace LightGive
 				LocalizeSystem.ChangeLanguage(LocalizeDefine.GetLanguage(SettingData.CorrespondenceLanguageNameList[m_selectLanguageNo]));
 			}
 
-				//EditorGUILayout.LabelField("NowLanguage", SettingData.NowLanguage.ToString());
 			GUI.color = Color.white;
 			EditorGUILayout.BeginVertical(GUI.skin.box);
 
@@ -95,50 +94,7 @@ namespace LightGive
 			if (GUILayout.Button("All Delete"))
 			{
 				PlayerPrefs.DeleteKey(LocalizeDefine.SaveKeyLanguageList);
-				//LoadLanguageList();
 			}
-		}
-
-		/// <summary>
-		/// 初期化
-		/// </summary>
-		void OnEnable()
-		{
-		}
-
-
-
-		/// <summary>
-		/// ロードした文字からリストにして返す
-		/// </summary>
-		/// <returns>The save data to lang list.</returns>
-		/// <param name="_str">String.</param>
-		public static List<SystemLanguage> GetSaveDataToLangList(string _str)
-		{
-			List<SystemLanguage> langEnumList = new List<SystemLanguage>();
-
-			//デバッグ用
-			//UnityEngine.Debug.Log("LoadString : " + _str);
-
-			string[] langList;
-			if (_str != "")
-			{
-				langList = _str.Split(',');
-			}
-			else
-			{
-				langList = new string[0];
-			}
-
-			for (int i = 0; i < langList.Length; i++)
-			{
-				//デバッグ用
-				//UnityEngine.Debug.Log(i.ToString("00") + " : " + langList[i]);
-				SystemLanguage lang = (SystemLanguage)Enum.Parse(typeof(SystemLanguage), langList[i]);
-				langEnumList.Add(lang);
-			}
-
-			return langEnumList;
 		}
 	}
 }

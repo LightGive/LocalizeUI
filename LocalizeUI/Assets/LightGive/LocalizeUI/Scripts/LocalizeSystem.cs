@@ -5,31 +5,66 @@ using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 using System.Runtime.CompilerServices;
+using System.Security.Permissions;
 #endif
 
 namespace LightGive
 {
 	public static class LocalizeSystem
 	{
-		private static LocalizeSettingData settingData;
-		private static List<ILocalizeUI> localizeList = new List<ILocalizeUI>();
-		public static List<Font> fontList = new List<Font>();
+		private static List<ILocalizeUI> m_localizeList = new List<ILocalizeUI>();
+		private static List<Font> m_fontList = new List<Font>();
+		private static LocalizeSettingData m_settingData;
 
-		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-		private static void InitAwakeAfter()
+		/// <summary>
+		/// 設定のデータ
+		/// </summary>
+		/// <value>The setting data.</value>
+		public static LocalizeSettingData SettingData
 		{
-			//ChangeLanguage(DefaultLanguege);
+			get
+			{
+				if (m_settingData == null)
+				{
+					m_settingData = Resources.Load<LocalizeSettingData>(LocalizeDefine.SettingPath);
+				}
+				return m_settingData;
+			}
 		}
 
+		/// <summary>
+		/// シーンを読み込む前
+		/// </summary>
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void InitAwakeBefore()
 		{
-			settingData = Resources.Load<LocalizeSettingData>(LocalizeDefine.SettingPath);
+			m_settingData = Resources.Load<LocalizeSettingData>(LocalizeDefine.SettingPath);
 		}
+
+		/// <summary>
+		/// シーンが読み込まれた後
+		/// </summary>
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+		private static void InitAwakeAfter()
+		{
+			ChangeLanguage(SettingData.NowLanguage);
+		}
+
+		public static List<SystemLanguage> GetCorrespondenceLanguageList()
+		{
+			List<SystemLanguage> correspondenceLanguageList = new List<SystemLanguage>();
+			for (int i = 0; i < LocalizeDefine.LanguageNum;i++)
+			{
+				if (SettingData.IsCorrespondence[i])
+					correspondenceLanguageList.Add((SystemLanguage)i);
+			}
+			return correspondenceLanguageList;
+		}
+
 
 		public static void ChangeLanguage(SystemLanguage _language)
 		{
-			localizeList = new List<ILocalizeUI>();
+			m_localizeList = new List<ILocalizeUI>();
 			ILocalizeUI tmp;
 			foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
 			{
@@ -38,38 +73,24 @@ namespace LightGive
 					tmp = (ILocalizeUI)obj.GetComponent(typeof(ILocalizeUI));
 					if (tmp == null)
 						continue;
-					localizeList.Add(tmp);
+					m_localizeList.Add(tmp);
 				}
 			}
 
-			Debug.Log(_language.ToString() + "に言語を変更しました");
-			Debug.Log("カウント" + localizeList.Count);
-			for (int i = 0; i < localizeList.Count; i++)
+			for (int i = 0; i < m_localizeList.Count; i++)
 			{
-				if (localizeList[i] == null)
+				if (m_localizeList[i] == null)
 					continue;
 
-				localizeList[i].ChangeLanguage(_language);
+				m_localizeList[i].ChangeLanguage(_language);
 			}
-		}
-
-		public static void AddLocalizeUI(ILocalizeUI _localizeUI)
-		{
-			if (localizeList.Contains(_localizeUI))
-				return;
-			localizeList.Add(_localizeUI);
-		}
-
-		public static void RemoveLocalizeUI(ILocalizeUI _localizeUI)
-		{
-			localizeList.Remove(_localizeUI);
 		}
 
 #if UNITY_EDITOR
 		[MenuItem("Tools/LightGive/Localize/ResetList")]
 		static void ResetList()
 		{
-			localizeList = new List<ILocalizeUI>();
+			m_localizeList = new List<ILocalizeUI>();
 		}
 #endif
 	}
