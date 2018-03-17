@@ -43,7 +43,17 @@ namespace LightGive
 			}
 
 			EditorGUILayout.Space();
-			EditorGUILayout.LabelField("NowLanguage", SettingData.NowLanguage.ToString());
+			EditorGUI.BeginChangeCheck();
+			{
+				m_selectLanguageNo = EditorGUILayout.Popup("NowLanguage", m_selectLanguageNo, SettingData.CorrespondenceLanguageNameList.ToArray());
+			}
+			var isChange = EditorGUI.EndChangeCheck();
+			if(isChange)
+			{
+				LocalizeSystem.ChangeLanguage(LocalizeDefine.GetLanguage(SettingData.CorrespondenceLanguageNameList[m_selectLanguageNo]));
+			}
+
+				//EditorGUILayout.LabelField("NowLanguage", SettingData.NowLanguage.ToString());
 			GUI.color = Color.white;
 			EditorGUILayout.BeginVertical(GUI.skin.box);
 

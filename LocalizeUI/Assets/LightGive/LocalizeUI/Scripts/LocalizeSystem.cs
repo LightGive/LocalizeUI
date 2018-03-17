@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LightGive;
+
+#if UNITY_EDITOR
+using UnityEditor;
+using System.Runtime.CompilerServices;
+#endif
 
 namespace LightGive
 {
@@ -24,11 +28,29 @@ namespace LightGive
 		}
 
 
-		public static void ChangeLanguage(SystemLanguage _lang)
+		public static void ChangeLanguage(SystemLanguage _language)
 		{
-			for (int i = 0; i < localizeList.Count;i++)
+			localizeList = new List<ILocalizeUI>();
+			ILocalizeUI tmp;
+			foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
 			{
-				localizeList[i].ChangeLanguage(_lang);
+				if (obj.activeInHierarchy)
+				{
+					tmp = (ILocalizeUI)obj.GetComponent(typeof(ILocalizeUI));
+					if (tmp == null)
+						continue;
+					localizeList.Add(tmp);
+				}
+			}
+
+			Debug.Log(_language.ToString() + "に言語を変更しました");
+			Debug.Log("カウント" + localizeList.Count);
+			for (int i = 0; i < localizeList.Count; i++)
+			{
+				if (localizeList[i] == null)
+					continue;
+
+				localizeList[i].ChangeLanguage(_language);
 			}
 		}
 
@@ -36,8 +58,20 @@ namespace LightGive
 		{
 			if (localizeList.Contains(_localizeUI))
 				return;
-
 			localizeList.Add(_localizeUI);
 		}
+
+		public static void RemoveLocalizeUI(ILocalizeUI _localizeUI)
+		{
+			localizeList.Remove(_localizeUI);
+		}
+
+#if UNITY_EDITOR
+		[MenuItem("Tools/LightGive/Localize/ResetList")]
+		static void ResetList()
+		{
+			localizeList = new List<ILocalizeUI>();
+		}
+#endif
 	}
 }

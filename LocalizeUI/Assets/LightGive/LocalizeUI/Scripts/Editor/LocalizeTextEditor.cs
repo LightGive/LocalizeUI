@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
+using System.Diagnostics;
 
 namespace LightGive
 {
@@ -24,11 +26,21 @@ namespace LightGive
 			m_propIsChangeFontSize = serializedObject.FindProperty("m_isChangeFontSize");
 		}
 
+		private void Awake()
+		{
+			UnityEngine.Debug.Log("Awake");
+			LocalizeSystem.AddLocalizeUI((LocalizeText)target);
+		}
+
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
 
 			LocalizeText localizeText = target as LocalizeText;
+
+			EditorGUILayout.Space();
+			EditorGUILayout.ObjectField(localizeText.MainText, typeof(Text));
+
 
 			EditorGUILayout.Space();
 			EditorGUILayout.BeginHorizontal();

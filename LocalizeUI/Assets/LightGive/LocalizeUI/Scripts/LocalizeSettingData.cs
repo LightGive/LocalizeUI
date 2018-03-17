@@ -21,6 +21,16 @@ namespace LightGive
 		public SystemLanguage NowLanguage
 		{
 			get { return (SystemLanguage)m_nowLnaguageNo; }
+			set
+			{
+				m_nowLnaguageNo = (int)value;
+			}
+		}
+
+		public int NowLnaguageNo
+		{
+			get { return m_nowLnaguageNo; }
+			set { m_nowLnaguageNo = value; }
 		}
 
 		public bool[] IsCorrespondence

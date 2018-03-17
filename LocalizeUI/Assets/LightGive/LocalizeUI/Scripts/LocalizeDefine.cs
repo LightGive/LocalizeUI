@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace LightGive
 {
@@ -12,6 +15,15 @@ namespace LightGive
 		public static int LanguageNum
 		{
 			get { return System.Enum.GetNames(typeof(SystemLanguage)).Length; }
+		}
+
+		public static SystemLanguage GetLanguage(int _languageNo)
+		{
+			return (SystemLanguage)_languageNo;
+		}
+		public static SystemLanguage GetLanguage(string _languageStr)
+		{
+			return (SystemLanguage)Enum.Parse(typeof(SystemLanguage), _languageStr);
 		}
 	}
 }

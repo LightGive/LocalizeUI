@@ -145,7 +145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 115.55686, y: 23.2}
+  m_AnchoredPosition: {x: 115.55686, y: 12.8}
   m_SizeDelta: {x: 116, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235475018
@@ -814,6 +814,7 @@ RectTransform:
   - {fileID: 235475016}
   - {fileID: 1773690246}
   - {fileID: 1296398011}
+  - {fileID: 1796580488}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1232,7 +1233,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u300CHello!\u300D"
+  m_Text: "\u3053\u3093\u306B\u3061\u306F!"
 --- !u!222 &1773690248
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1343,6 +1344,185 @@ MonoBehaviour:
   - {x: 300, y: 50}
   m_isChangeRectSize: 0
   m_isChangeFontSize: 0
+--- !u!1 &1796580487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1796580488}
+  - component: {fileID: 1796580491}
+  - component: {fileID: 1796580490}
+  - component: {fileID: 1796580489}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1796580488
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796580487}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1187713553}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 111.3, y: -42.2}
+  m_SizeDelta: {x: 300, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1796580489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796580487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298ab19b30108433fa8a3660cccfc2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_textList:
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u4F60\u597D!"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - Hello!
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u3053\u3093\u306B\u3061\u306F!"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u4F60\u597D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  - "\u300CHello!\u300D"
+  m_fontSizeList: 1400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000140000001400000014000000
+  m_rectSizeList:
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  - {x: 300, y: 50}
+  m_isChangeRectSize: 0
+  m_isChangeFontSize: 0
+--- !u!114 &1796580490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796580487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u3053\u3093\u306B\u3061\u306F!"
+--- !u!222 &1796580491
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796580487}
 --- !u!1 &1973307583
 GameObject:
   m_ObjectHideFlags: 0

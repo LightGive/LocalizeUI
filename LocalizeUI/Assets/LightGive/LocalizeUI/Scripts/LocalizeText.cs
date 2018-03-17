@@ -26,7 +26,11 @@ namespace LightGive
 			get
 			{
 				if (!m_mainText)
+				{
+					if (this.gameObject == null)
+						return null;
 					m_mainText = this.gameObject.GetComponent<Text>();
+				}
 				return m_mainText;
 			}
 		}
@@ -39,6 +43,7 @@ namespace LightGive
 				m_fontSizeList[i] = MainText.fontSize;
 				m_rectSizeList[i] = MainText.rectTransform.sizeDelta;
 			}
+			LocalizeSystem.AddLocalizeUI(this);
 		}
 
 		void OnEnable()
@@ -46,10 +51,14 @@ namespace LightGive
 			LocalizeSystem.AddLocalizeUI(this);
 		}
 
+		void OnDisable()
+		{
+			LocalizeSystem.RemoveLocalizeUI(this);
+		}
+
 		public void ChangeLanguage(SystemLanguage _language)
 		{
 			int index = (int)_language;
-
 			MainText.text = m_textList[index];
 
 			if (m_isChangeRectSize)
