@@ -1,4 +1,4 @@
-# SimpleLocalizeUI[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://mit-license.org)
+# Simple-Localize-UI[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://mit-license.org)
 UnityのUIのローカライズを簡単にできるようにする
 
 ## 機能
