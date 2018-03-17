@@ -16,7 +16,7 @@ namespace LightGive
 
 		public LocalizeSettingData SettingData
 		{
-			get 
+			get
 			{
 				if (m_settingData == null)
 				{
@@ -48,9 +48,10 @@ namespace LightGive
 				m_selectLanguageNo = EditorGUILayout.Popup("NowLanguage", m_selectLanguageNo, SettingData.CorrespondenceLanguageNameList.ToArray());
 			}
 			var isChange = EditorGUI.EndChangeCheck();
-			if(isChange)
+			if (isChange)
 			{
 				LocalizeSystem.ChangeLanguage(LocalizeDefine.GetLanguage(SettingData.CorrespondenceLanguageNameList[m_selectLanguageNo]));
+				SceneView.RepaintAll();
 			}
 
 			GUI.color = Color.white;
@@ -58,13 +59,25 @@ namespace LightGive
 
 			for (int i = 0; i < SettingData.CorrespondenceLanguageNameList.Count; i++)
 			{
-
+				int languageIndex = (int)LocalizeDefine.GetLanguage(SettingData.CorrespondenceLanguageNameList[i]);
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.LabelField(SettingData.CorrespondenceLanguageNameList[i]);
+
+				EditorGUI.BeginChangeCheck();
+				{
+					SettingData.FontList[languageIndex] = (Font)EditorGUILayout.ObjectField(SettingData.FontList[languageIndex], typeof(Font), false);
+				}
+				var isChangeFont = EditorGUI.EndChangeCheck();
+				if (isChangeFont)
+				{
+					if (SettingData.FontList[languageIndex] == null)
+						SettingData.FontList[languageIndex] = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
+					LocalizeSystem.SetFont(SettingData.FontList);
+				}
+
 				if (GUILayout.Button("Remove"))
 				{
-					int removeIndex = (int)((SystemLanguage)Enum.Parse(typeof(SystemLanguage), SettingData.CorrespondenceLanguageNameList[i]));
-					SettingData.IsCorrespondence[removeIndex] = false;
+					SettingData.IsCorrespondence[languageIndex] = false;
 					SettingData.ChangeNameList();
 					Repaint();
 				}
@@ -73,7 +86,7 @@ namespace LightGive
 			EditorGUILayout.EndVertical();
 
 			//追加する言語が0じゃ無い時
-			if(SettingData.NotCorrespondenceLanguageNameList.Count != 0)
+			if (SettingData.NotCorrespondenceLanguageNameList.Count != 0)
 			{
 				EditorGUILayout.BeginHorizontal();
 				m_addSelectLanguageNo = EditorGUILayout.Popup(m_addSelectLanguageNo, SettingData.NotCorrespondenceLanguageNameList.ToArray());

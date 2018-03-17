@@ -41,7 +41,7 @@ namespace LightGive
 						EditorStyles.label.fontStyle = origFontStyle;
 
 						EditorGUI.indentLevel++;
-						m_propImageList.GetArrayElementAtIndex(i).objectReferenceValue = EditorGUILayout.ObjectField(m_propImageList.GetArrayElementAtIndex(i).objectReferenceValue, typeof(Sprite));
+						m_propImageList.GetArrayElementAtIndex(i).objectReferenceValue = EditorGUILayout.ObjectField(m_propImageList.GetArrayElementAtIndex(i).objectReferenceValue, typeof(Sprite),false);
 						EditorGUI.indentLevel--;
 						EditorGUILayout.Space();
 					}

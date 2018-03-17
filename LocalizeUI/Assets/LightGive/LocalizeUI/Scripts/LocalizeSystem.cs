@@ -4,8 +4,6 @@ using UnityEngine;
 
 #if UNITY_EDITOR
 using UnityEditor;
-using System.Runtime.CompilerServices;
-using System.Security.Permissions;
 #endif
 
 namespace LightGive
@@ -13,7 +11,6 @@ namespace LightGive
 	public static class LocalizeSystem
 	{
 		private static List<ILocalizeUI> m_localizeList = new List<ILocalizeUI>();
-		private static List<Font> m_fontList = new List<Font>();
 		private static LocalizeSettingData m_settingData;
 
 		/// <summary>
@@ -55,15 +52,40 @@ namespace LightGive
 			List<SystemLanguage> correspondenceLanguageList = new List<SystemLanguage>();
 			for (int i = 0; i < LocalizeDefine.LanguageNum;i++)
 			{
+				if (SettingData == null)
+					break;
 				if (SettingData.IsCorrespondence[i])
 					correspondenceLanguageList.Add((SystemLanguage)i);
 			}
 			return correspondenceLanguageList;
 		}
 
+		public static void SetFont(Font[] _fonts)
+		{
+			List<LocalizeText> textList = new List<LocalizeText>();
+			LocalizeText tmp;
+			foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
+			{
+				if (obj.activeInHierarchy)
+				{
+					tmp = obj.GetComponent<LocalizeText>();
+					if (tmp == null)
+						continue;
+					textList.Add(tmp);
+				}
+			}
+
+			for (int i = 0; i < textList.Count;i++)
+			{
+				textList[i].SetFont(_fonts);
+			}
+		}
 
 		public static void ChangeLanguage(SystemLanguage _language)
 		{
+			//現在の言語を設定
+			SettingData.NowLanguage = _language;
+
 			m_localizeList = new List<ILocalizeUI>();
 			ILocalizeUI tmp;
 			foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))

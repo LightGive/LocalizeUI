@@ -16,6 +16,8 @@ namespace LightGive
 		[SerializeField]
 		private Vector2[] m_rectSizeList = new Vector2[LocalizeDefine.LanguageNum];
 		[SerializeField]
+		private Font[] m_fontList = new Font[LocalizeDefine.LanguageNum];
+		[SerializeField]
 		private bool m_isChangeRectSize;
 		[SerializeField]
 		private bool m_isChangeFontSize;
@@ -45,10 +47,18 @@ namespace LightGive
 			}
 		}
 
+		public void SetFont(Font[] _fonts)
+		{
+			m_fontList = _fonts;
+		}
+
 		public void ChangeLanguage(SystemLanguage _language)
 		{
 			int index = (int)_language;
 			MainText.text = m_textList[index];
+
+			if (MainText.font != m_fontList[index])
+				MainText.font = m_fontList[index];
 
 			if (m_isChangeRectSize)
 			{

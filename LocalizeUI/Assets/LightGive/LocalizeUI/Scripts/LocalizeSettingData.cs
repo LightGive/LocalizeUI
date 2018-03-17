@@ -9,13 +9,19 @@ namespace LightGive
 {
 	public class LocalizeSettingData : ScriptableObject
 	{
-		/// <summary>
-		/// 言語に対応するかどうか
-		/// </summary>
+		private Font[] m_fontList = new Font[LocalizeDefine.LanguageNum];
 		private bool[] m_isCorrespondence = new bool[LocalizeDefine.LanguageNum];
 		private int m_nowLnaguageNo = 10;
 		private List<string> m_correspondenceLanguageNameList;
 		private List<string> m_notCorrespondenceLanguageNameList;
+
+		public LocalizeSettingData()
+		{
+			m_nowLnaguageNo = 10;
+			m_isCorrespondence[(int)SystemLanguage.English] = true;
+			m_isCorrespondence[(int)SystemLanguage.Japanese] = true;
+			m_isCorrespondence[(int)SystemLanguage.Chinese] = true;
+		}
 
 		#region Property
 		public SystemLanguage NowLanguage
@@ -31,6 +37,18 @@ namespace LightGive
 		{
 			get { return m_nowLnaguageNo; }
 			set { m_nowLnaguageNo = value; }
+		}
+
+		public Font[] FontList
+		{
+			get
+			{
+				return m_fontList;
+			}
+			set
+			{
+				m_fontList = value;
+			}
 		}
 
 		public bool[] IsCorrespondence
@@ -75,6 +93,12 @@ namespace LightGive
 		private void OnEnable()
 		{
 			ChangeNameList();
+
+			for (int i = 0; i < LocalizeDefine.LanguageNum; i++)
+			{
+				if (!m_fontList[i])
+					m_fontList[i] = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
+			}
 		}
 
 #if UNITY_EDITOR
