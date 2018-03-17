@@ -43,12 +43,10 @@ namespace LightGive
 				m_fontSizeList[i] = MainText.fontSize;
 				m_rectSizeList[i] = MainText.rectTransform.sizeDelta;
 			}
-			LocalizeSystem.AddLocalizeUI(this);
 		}
 
 		void OnEnable()
 		{
-			LocalizeSystem.AddLocalizeUI(this);
 		}
 
 		void OnDisable()

@@ -27,7 +27,6 @@ namespace LightGive
 			settingData = Resources.Load<LocalizeSettingData>(LocalizeDefine.SettingPath);
 		}
 
-
 		public static void ChangeLanguage(SystemLanguage _language)
 		{
 			localizeList = new List<ILocalizeUI>();
