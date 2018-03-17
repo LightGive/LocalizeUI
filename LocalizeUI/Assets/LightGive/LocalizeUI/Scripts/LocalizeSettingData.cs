@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 namespace LightGive
 {
@@ -15,22 +17,24 @@ namespace LightGive
 		private List<string> m_correspondenceLanguageNameList;
 		private List<string> m_notCorrespondenceLanguageNameList;
 
-
-
 		#region Property
 		public SystemLanguage NowLanguage
 		{
 			get { return (SystemLanguage)m_nowLnaguageNo; }
 		}
+
 		public bool[] IsCorrespondence
 		{
-			get { return m_isCorrespondence; }
-			set 
+			get
+			{
+				return m_isCorrespondence;
+			}
+			set
 			{
 				m_isCorrespondence = value;
-				ChangeNameList();
 			}
 		}
+
 		public List<string> CorrespondenceLanguageNameList
 		{
 			get { return m_correspondenceLanguageNameList; }
@@ -41,21 +45,29 @@ namespace LightGive
 		}
 		#endregion
 
-		private void ChangeNameList()
+		public void ChangeNameList()
 		{
 			List<string> tmpList1 = new List<string>();
 			List<string> tmpList2 = new List<string>();
 			for (int i = 0; i < LocalizeDefine.LanguageNum; i++)
 			{
-				if (IsCorrespondence[i])
+				if (m_isCorrespondence[i])
 					tmpList1.Add(((SystemLanguage)i).ToString());
 				else
 					tmpList2.Add(((SystemLanguage)i).ToString());
 			}
 
-			m_correspondenceLanguageNameList = tmpList1;
-			m_notCorrespondenceLanguageNameList = tmpList2;
+			m_correspondenceLanguageNameList = new List<string>(tmpList1);
+			m_notCorrespondenceLanguageNameList = new List<string>(tmpList2);
 		}
+
+
+		private void OnEnable()
+		{
+			ChangeNameList();
+		}
+
+#if UNITY_EDITOR
 
 		[MenuItem("Tools/LightGive/Localize/Create SettingData")]
 		static void CreateExampleAssetInstance()
@@ -70,5 +82,7 @@ namespace LightGive
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
 		}
+#endif
+
 	}
 }
