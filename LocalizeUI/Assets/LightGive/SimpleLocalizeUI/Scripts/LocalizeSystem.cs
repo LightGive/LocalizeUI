@@ -79,6 +79,7 @@ namespace LightGive
 			{
 				textList[i].SetFont(_fonts);
 			}
+			AssetDatabase.SaveAssets();
 		}
 
 		public static void ChangeLanguage(SystemLanguage _language)
@@ -101,9 +102,10 @@ namespace LightGive
 			{
 				if (m_localizeList[i] == null)
 					continue;
-				Undo.RecordObject((Object)m_localizeList[i], "Change Language");
 				m_localizeList[i].ChangeLanguage(_language);
 			}
+
+			AssetDatabase.SaveAssets();
 		}
 	}
 }

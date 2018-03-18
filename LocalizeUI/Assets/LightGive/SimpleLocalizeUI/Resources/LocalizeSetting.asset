@@ -56,10 +56,9 @@ MonoBehaviour:
   - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-  m_isCorrespondence: 0000000000010100000001000000000000000000000001000000000000000000000000000000000000000000
+  m_isCorrespondence: 0000000000000100000001000000000000000000000001000000000000000000000000000000000000000000
   m_nowLnaguageNo: 22
   m_correspondenceLanguageNameList:
-  - Catalan
   - Chinese
   - English
   - Japanese
@@ -69,6 +68,7 @@ MonoBehaviour:
   - Basque
   - Belarusian
   - Bulgarian
+  - Catalan
   - Czech
   - Danish
   - Dutch
