@@ -23,11 +23,24 @@ namespace LightGive
 			}
 		}
 
-
 		[MenuItem("Tools/LightGive/Localize/SettingWindow")]
 		static void Open()
 		{
 			EditorWindow.GetWindow<SettingLocalizeWindow>("SettingLocalize");
+		}
+
+		private void OnEnable()
+		{
+			int idx = 0;
+			for (int i = 0; i < SettingData.CorrespondenceLanguageNameList.Count; i++)
+			{
+				if ((SystemLanguage)Enum.Parse(typeof(SystemLanguage), SettingData.CorrespondenceLanguageNameList[i]) == SettingData.NowLanguage)
+				{
+					idx = i;
+					break;
+				}
+			}
+			m_selectLanguageNo = idx;
 		}
 
 		void OnGUI()
@@ -47,7 +60,10 @@ namespace LightGive
 			var isChange = EditorGUI.EndChangeCheck();
 			if (isChange)
 			{
+				Undo.RecordObject(this, "Change Now Language");
+
 				LocalizeSystem.ChangeLanguage(LocalizeDefine.GetLanguage(SettingData.CorrespondenceLanguageNameList[m_selectLanguageNo]));
+
 				SceneView.RepaintAll();
 			}
 
@@ -72,6 +88,8 @@ namespace LightGive
 
 				if (GUILayout.Button("Remove"))
 				{
+					Undo.RecordObject(this, "Remove Language");
+
 					SettingData.IsCorrespondence[languageIndex] = false;
 					SettingData.ChangeNameList();
 					Repaint();

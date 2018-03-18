@@ -11,3 +11,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91479efb06f5843b68d24abb9a1dff73, type: 3}
   m_Name: LocalizeSetting
   m_EditorClassIdentifier: 
+  m_fontList:
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 12800000, guid: 25892ffec44324369b64fdc6b93e9b96, type: 3}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 12800000, guid: 8ee9659443f124af6b7189cbc6cb912e, type: 3}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 12800000, guid: 4ef853c619b434983bfd626d992cc73e, type: 3}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_isCorrespondence: 0000000000010100000001000000000000000000000001000000000000000000000000000000000000000000
+  m_nowLnaguageNo: 22
+  m_correspondenceLanguageNameList:
+  - Catalan
+  - Chinese
+  - English
+  - Japanese
+  m_notCorrespondenceLanguageNameList:
+  - Afrikaans
+  - Arabic
+  - Basque
+  - Belarusian
+  - Bulgarian
+  - Czech
+  - Danish
+  - Dutch
+  - Estonian
+  - Faroese
+  - Finnish
+  - French
+  - German
+  - Greek
+  - Hebrew
+  - Hungarian
+  - Icelandic
+  - Indonesian
+  - Italian
+  - Korean
+  - Latvian
+  - Lithuanian
+  - Norwegian
+  - Polish
+  - Portuguese
+  - Romanian
+  - Russian
+  - SerboCroatian
+  - Slovak
+  - Slovenian
+  - Spanish
+  - Swedish
+  - Thai
+  - Turkish
+  - Ukrainian
+  - Vietnamese
+  - ChineseSimplified
+  - ChineseTraditional
+  - Unknown
+  - 43

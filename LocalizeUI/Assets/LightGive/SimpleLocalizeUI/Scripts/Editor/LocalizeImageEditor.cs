@@ -24,7 +24,6 @@ namespace LightGive
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
-			LocalizeImage localizeText = target as LocalizeImage;
 			EditorGUILayout.Space();
 
 			EditorGUILayout.BeginHorizontal();

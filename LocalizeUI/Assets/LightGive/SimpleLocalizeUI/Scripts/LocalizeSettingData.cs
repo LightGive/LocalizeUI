@@ -9,10 +9,15 @@ namespace LightGive
 {
 	public class LocalizeSettingData : ScriptableObject
 	{
+		[SerializeField]
 		private Font[] m_fontList = new Font[LocalizeDefine.LanguageNum];
+		[SerializeField]
 		private bool[] m_isCorrespondence = new bool[LocalizeDefine.LanguageNum];
+		[SerializeField]
 		private int m_nowLnaguageNo = 10;
+		[SerializeField]
 		private List<string> m_correspondenceLanguageNameList;
+		[SerializeField]
 		private List<string> m_notCorrespondenceLanguageNameList;
 
 		public LocalizeSettingData()
@@ -29,7 +34,13 @@ namespace LightGive
 			get { return (SystemLanguage)m_nowLnaguageNo; }
 			set
 			{
+				AssetDatabase.StartAssetEditing();
+
 				m_nowLnaguageNo = (int)value;
+
+				AssetDatabase.StopAssetEditing();
+				EditorUtility.SetDirty(this);
+				AssetDatabase.SaveAssets();
 			}
 		}
 
@@ -47,7 +58,13 @@ namespace LightGive
 			}
 			set
 			{
+				AssetDatabase.StartAssetEditing();
+
 				m_fontList = value;
+
+				AssetDatabase.StopAssetEditing();
+				EditorUtility.SetDirty(this);
+				AssetDatabase.SaveAssets();
 			}
 		}
 
@@ -59,7 +76,13 @@ namespace LightGive
 			}
 			set
 			{
+				AssetDatabase.StartAssetEditing();
+
 				m_isCorrespondence = value;
+
+				AssetDatabase.StopAssetEditing();
+				EditorUtility.SetDirty(this);
+				AssetDatabase.SaveAssets();
 			}
 		}
 
@@ -75,6 +98,8 @@ namespace LightGive
 
 		public void ChangeNameList()
 		{
+			AssetDatabase.StartAssetEditing();
+
 			List<string> tmpList1 = new List<string>();
 			List<string> tmpList2 = new List<string>();
 			for (int i = 0; i < LocalizeDefine.LanguageNum; i++)
@@ -87,6 +112,10 @@ namespace LightGive
 
 			m_correspondenceLanguageNameList = new List<string>(tmpList1);
 			m_notCorrespondenceLanguageNameList = new List<string>(tmpList2);
+
+			AssetDatabase.StopAssetEditing();
+			EditorUtility.SetDirty(this);
+			AssetDatabase.SaveAssets();
 		}
 
 
@@ -99,6 +128,11 @@ namespace LightGive
 				if (!m_fontList[i])
 					m_fontList[i] = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
 			}
+		}
+
+		private void OnDisable()
+		{
+			
 		}
 
 #if UNITY_EDITOR
