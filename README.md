@@ -8,7 +8,7 @@ Unityが落ちる不具合の修正(2018/0527)<br>
 
 
 
-## 機能
+## Function
 ・エディタ上で言語の切り替え<br>
 ・言語ごとでフォントを設定 (Text)<br>
 ・言語ごとでFontSize、RectSizeの指定 (Text)<br>
