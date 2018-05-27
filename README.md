@@ -1,5 +1,4 @@
 # Simple-Localize-UI[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://mit-license.org)
-## 説明
 UnityのUIのローカライズを簡単にできるようにする<br>
 
 ## Update
