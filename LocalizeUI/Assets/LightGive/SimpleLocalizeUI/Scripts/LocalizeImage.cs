@@ -14,6 +14,8 @@ namespace LightGive
 		private Vector2[] m_rectSizeList = new Vector2[LocalizeDefine.LanguageNum];
 		[SerializeField]
 		private int m_changeRectSize;
+		[SerializeField]
+		private Vector2 m_tmpRectSize;
 
 		private Image m_mainImage;
 		public Image MainImage

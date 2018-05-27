@@ -74,22 +74,6 @@ namespace LightGive
 							EditorGUILayout.EndHorizontal();
 						}
 
-						EditorGUILayout.BeginHorizontal();
-						if (m_propIsChangeFontSize.boolValue)
-						{
-							if (GUILayout.Button("GetFontSize"))
-							{
-								m_propFontSizeList.GetArrayElementAtIndex(i).intValue = localizeText.MainText.fontSize;
-							}
-						}
-						if (m_propIsChangeRectSize.boolValue)
-						{
-							if (GUILayout.Button("GetRectSize"))
-							{
-								m_propRectSizeList.GetArrayElementAtIndex(i).vector2Value = localizeText.MainText.rectTransform.sizeDelta;
-							}
-						}
-						EditorGUILayout.EndHorizontal();
 						EditorGUI.indentLevel--;
 						EditorGUILayout.Space();
 					}

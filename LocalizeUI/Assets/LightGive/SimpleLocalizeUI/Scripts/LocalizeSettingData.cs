@@ -132,7 +132,7 @@ namespace LightGive
 
 		private void OnDisable()
 		{
-			
+
 		}
 
 #if UNITY_EDITOR
@@ -151,6 +151,20 @@ namespace LightGive
 			AssetDatabase.Refresh();
 		}
 #endif
-
 	}
+
+#if UNITY_EDITOR
+	[CustomEditor(typeof(LocalizeSettingData))]
+	public class LocalizeSettingDataEditor : Editor
+	{
+		public override void OnInspectorGUI()
+		{
+			EditorGUILayout.HelpBox("Please don't delete this file", MessageType.Info);
+
+			//後々消す
+			base.OnInspectorGUI();
+		}
+	}
+#endif
+
 }
