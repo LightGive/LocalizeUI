@@ -1,16 +1,10 @@
-﻿<Properties StartupConfiguration="{62BD1764-11D1-C684-6C6F-26E480D70DB8}|">
+﻿<Properties StartupConfiguration="{31DCCA54-8038-CFE4-6D14-9C7DB82EA77D}|">
   <MonoDevelop.Ide.ItemProperties.LocalizeUI PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/SimpleLocalizeUI/Scripts/ILocalizeUI.cs">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/Managers/SimpleLocalizeManager/Scripts/Editor/LocalizeTextEditor.cs">
     <Files>
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/LocalizeSystem.cs" Line="81" Column="5" />
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/LocalizeSettingData.cs" Line="53" Column="20" />
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/LocalizeImage.cs" Line="1" Column="1" />
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/LocalizeDefine.cs" Line="27" Column="4" />
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/ILocalizeUI.cs" Line="1" Column="1" />
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/Editor/SettingLocalizeWindow.cs" Line="86" Column="24" />
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/Editor/LocalizeImageEditor.cs" Line="27" Column="1" />
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/Editor/LocalizeTextEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/LightGive/SimpleLocalizeUI/Scripts/LocalizeText.cs" Line="19" Column="18" />
+      <File FileName="Assets/LightGive/Managers/SimpleLocalizeManager/Scripts/Editor/LocalizeImageEditor.cs" Line="19" Column="20" />
+      <File FileName="Assets/LightGive/Managers/SimpleLocalizeManager/Scripts/Editor/LocalizeTextEditor.cs" Line="30" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

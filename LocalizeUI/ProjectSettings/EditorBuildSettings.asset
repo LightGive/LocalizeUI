@@ -4,4 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LightGive/SimpleLocalizeUI/Example/Example.unity
+    guid: 4aa6ab3edef014c559778eefd18909c4
+  m_configObjects: {}
