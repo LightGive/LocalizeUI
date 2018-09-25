@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LightGive;
 
-public class SimpleLocalizeManager : MonoBehaviour {
+public class SimpleLocalizeManager : SingletonMonoBehaviour<SimpleLocalizeManager>
+{
+	[SerializeField]
+	private LocalizeSettingData m_settingData;
 
-	// Use this for initialization
-	void Start () {
-		
+	protected override void Awake()
+	{
+		base.isDontDestroy = true;
+		base.Awake();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void Init()
+	{
+		m_settingData = Resources.Load<LocalizeSettingData>(LocalizeSettingData.SettingDataName);
 	}
 }
